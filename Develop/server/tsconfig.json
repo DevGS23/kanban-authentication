@@ -1,13 +1,27 @@
 {
-    "extends": "../tsconfig.json",
     "compilerOptions": {
-      /* Modules */
-      "rootDir": "src" /* Specify the root folder within your source files. */,
-  
-      /* Emit */
-      "outDir": "dist" /* Specify an output folder for all emitted files. */
-      // "noEmitOnError": true /* Disable emitting files if any type checking errors are reported. */
+        /* Modules */
+        "module": "CommonJS" /* Ensures compatibility with Node.js */,
+        "moduleResolution": "node16" /* Fixes module resolution issues */,
+        "esModuleInterop": true /* Allows default imports from CommonJS modules */,
+        "resolveJsonModule": true /* Allows importing JSON files */,
+
+        /* TypeScript Processing */
+        "target": "ES6" /* Use modern JavaScript */,
+        "rootDir": "src" /* Specify the root folder for source files */,
+        "outDir": "dist" /* Specify output folder for compiled files */,
+
+        /* Strict Type Checking */
+        "strict": true /* Enables all strict type-checking options */,
+        "noImplicitAny": true /* Prevents using variables without types */,
+        "strictNullChecks": true /* Prevents null-related errors */,
+
+        /* Emit */
+        "noEmitOnError": true /* Stop compilation on type errors */,
+
+        /* Type Definitions */
+        "typeRoots": ["./node_modules/@types", "./src/types"]
     },
     "include": ["src"],
-    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "exclude": ["node_modules", "dist"]
 }
