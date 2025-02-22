@@ -1,6 +1,6 @@
-import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
 import { Request, Response, NextFunction } from 'express';
+import dotenv from 'dotenv';
 
 dotenv.config();
 
@@ -31,4 +31,4 @@ const authenticateToken = (
     );
 };
 
-export default authenticateToken;
+export { authenticateToken }; // ✅ Named export
