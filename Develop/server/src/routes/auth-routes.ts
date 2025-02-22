@@ -14,4 +14,20 @@ router.post('/login', (req, res) => {
     const { username, password } = req.body;
 
     const user = USERS.find(
-   
+        (u) => u.username === username && u.password === password
+    );
+    if (!user) {
+        return res.status(401).json({ message: 'Invalid credentials' });
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+        { username: user.username },
+        process.env.JWT_SECRET as string,
+        { expiresIn: '1h' }
+    );
+
+    res.json({ token });
+});
+
+export default router;
