@@ -8,6 +8,4 @@ const router = express.Router();
 router.use('/auth', authRoutes);
 
 // Protected routes - Require authentication
-router.use('/tasks', authenticateToken, require('./tasks'));
-
-export default router;
+router.use('/tasks', authenticateToken, requi
